@@ -12,6 +12,11 @@ namespace Sample5
 {
     public partial class Form1 : Form
     {
+        private enum weeks
+        {
+            Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -19,9 +24,12 @@ namespace Sample5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] weeks = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-            foreach (String week in weeks)
+            Array array = Enum.GetValues(typeof(weeks));
+
+            foreach (object value in array)
             {
+                weeks week = (weeks)value;
+
                 Console.WriteLine(week);
             }
         }
